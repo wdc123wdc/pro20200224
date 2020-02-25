@@ -1,6 +1,6 @@
 package io.cjf.jcartadministrationback.dto.in;
 
-public class productSearchlnDTO {
+public class ProductSearchlnDTO {
     private String productCode;
     private String productName;
     private Double price;
