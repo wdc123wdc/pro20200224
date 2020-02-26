@@ -1,23 +1,35 @@
 package io.cjf.jcartadministrationback.controller;
 
-import io.cjf.jcartadministrationback.dto.in.AdministratorUpdateInDTO;
-import io.cjf.jcartadministrationback.dto.in.ProductCreatInDTO;
+import com.github.pagehelper.Page;
+import io.cjf.jcartadministrationback.dto.in.ProductCreateInDTO;
 import io.cjf.jcartadministrationback.dto.in.ProductSearchlnDTO;
 import io.cjf.jcartadministrationback.dto.in.ProductUpdateInDTO;
 import io.cjf.jcartadministrationback.dto.out.PageOutDTO;
 import io.cjf.jcartadministrationback.dto.out.ProductListOutDTO;
 import io.cjf.jcartadministrationback.dto.out.ProductShowOutDTO;
+import io.cjf.jcartadministrationback.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
+    @Autowired
+    private  ProductService productService;
+
     @GetMapping("/search")
     public PageOutDTO<ProductListOutDTO> search (ProductSearchlnDTO productSearchlnDTO,
-    @RequestParam Integer pageNum
-    ){
-        return  null;
+    @RequestParam(required = false,defaultValue = "1") Integer pageNum){
+        Page<ProductListOutDTO> page = productService.search(pageNum);
+
+        PageOutDTO<ProductListOutDTO> pageOutDTO = new PageOutDTO<>();
+        pageOutDTO.setTotal(page.getTotal());
+        pageOutDTO.setPageSize(page.getPageSize());
+        pageOutDTO.setPageNum(page.getPageNum());
+        pageOutDTO.setList(page);
+
+        return pageOutDTO;
     }
 
     @GetMapping("/getById")
@@ -26,7 +38,7 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public Integer create(@RequestBody ProductCreatInDTO productCreatInDTO){
+    public Integer create(@RequestBody ProductCreateInDTO productCreatInDTO){
         return  null;
     }
 

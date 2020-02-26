@@ -1,26 +1,42 @@
-package io.cjf.jcartadministrationback.dto.in;
+package io.cjf.jcartadministrationback.po;
 
-import java.util.List;
+public class Product {
+    private Integer productId;
 
-public class ProductCreatInDTO {
     private String productCode;
+
     private String productName;
+
+    private String productAbstract;
+
     private Double price;
+
     private Double discount;
+
     private Integer stockQuantity;
+
     private Byte status;
+
     private String mainPicUrl;
+
     private Integer rewordPoints;
+
     private Integer sortOrder;
-    private String description;
-    private List<String> otherPicUrls;
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 
     public String getProductCode() {
         return productCode;
     }
 
     public void setProductCode(String productCode) {
-        this.productCode = productCode;
+        this.productCode = productCode == null ? null : productCode.trim();
     }
 
     public String getProductName() {
@@ -28,7 +44,15 @@ public class ProductCreatInDTO {
     }
 
     public void setProductName(String productName) {
-        this.productName = productName;
+        this.productName = productName == null ? null : productName.trim();
+    }
+
+    public String getProductAbstract() {
+        return productAbstract;
+    }
+
+    public void setProductAbstract(String productAbstract) {
+        this.productAbstract = productAbstract == null ? null : productAbstract.trim();
     }
 
     public Double getPrice() {
@@ -68,7 +92,7 @@ public class ProductCreatInDTO {
     }
 
     public void setMainPicUrl(String mainPicUrl) {
-        this.mainPicUrl = mainPicUrl;
+        this.mainPicUrl = mainPicUrl == null ? null : mainPicUrl.trim();
     }
 
     public Integer getRewordPoints() {
@@ -85,21 +109,5 @@ public class ProductCreatInDTO {
 
     public void setSortOrder(Integer sortOrder) {
         this.sortOrder = sortOrder;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<String> getOtherPicUrls() {
-        return otherPicUrls;
-    }
-
-    public void setOtherPicUrls(List<String> otherPicUrls) {
-        this.otherPicUrls = otherPicUrls;
     }
 }
