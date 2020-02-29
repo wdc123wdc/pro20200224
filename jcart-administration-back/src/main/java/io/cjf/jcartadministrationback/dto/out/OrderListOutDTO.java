@@ -1,21 +1,14 @@
 package io.cjf.jcartadministrationback.dto.out;
 
 public class OrderListOutDTO {
-    private Integer orderId;
+    private Long orderId;
     private Integer customerId;
     private String customerName;
-    private  Byte status;
-    private double totalPirce;
-    private  Long createTimesTamp;
-    private  Long updateTimesTamp;
+    private Byte status;
+    private Double totalPirce;
+    private Long createTimestamp;
+    private Long updateTimestamp;
 
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
 
     public Integer getCustomerId() {
         return customerId;
@@ -33,6 +26,30 @@ public class OrderListOutDTO {
         this.customerName = customerName;
     }
 
+    public Double getTotalPirce() {
+        return totalPirce;
+    }
+
+    public void setTotalPirce(Double totalPirce) {
+        this.totalPirce = totalPirce;
+    }
+
+    public Long getCreateTimestamp() {
+        return createTimestamp;
+    }
+
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public Long getUpdateTimestamp() {
+        return updateTimestamp;
+    }
+
+    public void setUpdateTimestamp(Long updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
+    }
+
     public Byte getStatus() {
         return status;
     }
@@ -41,27 +58,11 @@ public class OrderListOutDTO {
         this.status = status;
     }
 
-    public double getTotalPirce() {
-        return totalPirce;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setTotalPirce(double totalPirce) {
-        this.totalPirce = totalPirce;
-    }
-
-    public Long getCreateTimesTamp() {
-        return createTimesTamp;
-    }
-
-    public void setCreateTimesTamp(Long createTimesTamp) {
-        this.createTimesTamp = createTimesTamp;
-    }
-
-    public Long getUpdateTimesTamp() {
-        return updateTimesTamp;
-    }
-
-    public void setUpdateTimesTamp(Long updateTimesTamp) {
-        this.updateTimesTamp = updateTimesTamp;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 }

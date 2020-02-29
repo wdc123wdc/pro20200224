@@ -1,14 +1,14 @@
 var app = new Vue({
     el: '#app',
     data: {
-        pageInfo:'', 
+        pageInfo: '',
         pageNum: 1
     },
-    mounted(){
+    mounted() {
         console.log('view mounted');
         this.searchProduct();
     },
-    methods:{
+    methods: {
         handlePageChange(val){
             console.log('page change');
             this.pageNum = val;

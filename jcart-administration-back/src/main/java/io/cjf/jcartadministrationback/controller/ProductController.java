@@ -2,7 +2,7 @@ package io.cjf.jcartadministrationback.controller;
 
 import com.github.pagehelper.Page;
 import io.cjf.jcartadministrationback.dto.in.ProductCreateInDTO;
-import io.cjf.jcartadministrationback.dto.in.ProductSearchlnDTO;
+import io.cjf.jcartadministrationback.dto.in.ProductSearchInDTO;
 import io.cjf.jcartadministrationback.dto.in.ProductUpdateInDTO;
 import io.cjf.jcartadministrationback.dto.out.PageOutDTO;
 import io.cjf.jcartadministrationback.dto.out.ProductListOutDTO;
@@ -19,11 +19,11 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private  ProductService productService;
+    private ProductService productService;
 
     @GetMapping("/search")
-    public PageOutDTO<ProductListOutDTO> search (ProductSearchlnDTO productSearchlnDTO,
-    @RequestParam(required = false,defaultValue = "1") Integer pageNum){
+    public PageOutDTO<ProductListOutDTO> search(ProductSearchInDTO productSearchInDTO,
+                                                @RequestParam(required = false, defaultValue = "1") Integer pageNum){
         Page<ProductListOutDTO> page = productService.search(pageNum);
 
         PageOutDTO<ProductListOutDTO> pageOutDTO = new PageOutDTO<>();
@@ -36,7 +36,7 @@ public class ProductController {
     }
 
     @GetMapping("/getById")
-    public ProductShowOutDTO getById  (@RequestParam Integer productId){
+    public ProductShowOutDTO getById(@RequestParam Integer productId){
         ProductShowOutDTO productShowOutDTO = productService.getById(productId);
         return productShowOutDTO;
     }
@@ -61,6 +61,5 @@ public class ProductController {
     public void batchDelete(@RequestBody List<Integer> productIds){
         productService.batchDelete(productIds);
     }
-
 
 }

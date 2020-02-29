@@ -2,6 +2,7 @@ package io.cjf.jcartadministrationback.dto.in;
 
 import java.util.List;
 
+
 public class ProductUpdateInDTO {
     private Integer productId;
     private String productName;

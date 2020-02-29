@@ -4,7 +4,7 @@ public class AdministratorListOutDTO {
     private Integer administratorId;
     private String username;
     private Byte status;
-    private Long createTimesTamp;
+    private Long createTimestamp;
 
     public Integer getAdministratorId() {
         return administratorId;
@@ -30,11 +30,11 @@ public class AdministratorListOutDTO {
         this.status = status;
     }
 
-    public Long getCreateTimesTamp() {
-        return createTimesTamp;
+    public Long getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreateTimesTamp(Long createTimesTamp) {
-        this.createTimesTamp = createTimesTamp;
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 }
