@@ -12,4 +12,5 @@ public class JcartAdministrationBackApplication {
         SpringApplication.run(JcartAdministrationBackApplication.class, args);
     }
 
+
 }
