@@ -57,9 +57,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        #{orderId,jdbcType=BIGINT},
-      </if>
       <if test="customerId != null">
         #{customerId,jdbcType=INTEGER},
       </if>

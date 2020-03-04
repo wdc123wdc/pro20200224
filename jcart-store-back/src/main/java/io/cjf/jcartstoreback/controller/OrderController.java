@@ -18,7 +18,8 @@ public class OrderController {
     }
 
     @GetMapping("/getList")
-    public PageOutDTO<OrderListOutDTO> getList(@RequestAttribute Integer customerId){
+    public PageOutDTO<OrderListOutDTO> getList(@RequestParam(required = false,defaultValue =  "1") Integer pageNum,
+            @RequestAttribute Integer customerId){
         return null;
     }
 
