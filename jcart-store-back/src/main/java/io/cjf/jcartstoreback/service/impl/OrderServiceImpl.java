@@ -22,8 +22,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import java.util.Date;
-
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -41,7 +39,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public Long checkout(OrderCheckoutInDTO orderCheckoutInDTO, Integer customerId) {
+    public Long checkout(OrderCheckoutInDTO orderCheckoutInDTO,
+                            Integer customerId) {
+
         List<OrderProductInDTO> orderProductInDTOS = orderCheckoutInDTO.getOrderProducts();
         List<OrderProductVO> orderProductVOS = orderProductInDTOS.stream().map(orderProductInDTO -> {
             Product orderProduct = productService.getById(orderProductInDTO.getProductId());

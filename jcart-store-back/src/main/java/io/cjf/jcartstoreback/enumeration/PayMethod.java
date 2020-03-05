@@ -1,7 +1,9 @@
 package io.cjf.jcartstoreback.enumeration;
 
 public enum PayMethod {
-    Disable,
-    Enable,
-    Unsafe
+    CashOnDelivery,
+    DebitCard,
+    CreditCart,
+    Wepay,
+    Alipay
 }
