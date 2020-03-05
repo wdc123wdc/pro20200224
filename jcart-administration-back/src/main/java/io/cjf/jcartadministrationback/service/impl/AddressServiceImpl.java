@@ -33,4 +33,10 @@ public class AddressServiceImpl implements AddressService {
         Address address = addressMapper.selectByPrimaryKey(addressId);
         return address;
     }
+
+    @Override
+    public List<Address> getByCustomerId(Integer customerId) {
+        List<Address> addresses = addressMapper.selectByCustomerId(customerId);
+        return addresses;
+    }
 }

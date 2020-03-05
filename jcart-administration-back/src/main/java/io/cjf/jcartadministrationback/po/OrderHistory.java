@@ -62,4 +62,7 @@ public class OrderHistory {
     public void setCustomerNotified(Boolean customerNotified) {
         this.customerNotified = customerNotified;
     }
+
+    public void setOrderId(Long orderId) {
+    }
 }

@@ -69,7 +69,9 @@ public class CustomerController {
         customerShowOutDTO.setDefaultAddressId(customer.getDefaultAddressId());
 
         Address defaultAddress = addressService.getById(customer.getDefaultAddressId());
-        customerShowOutDTO.setDefaultAddress(defaultAddress.getContent());
+        if (defaultAddress != null) {
+            customerShowOutDTO.setDefaultAddress(defaultAddress.getContent());
+        }
         return customerShowOutDTO;
     }
 

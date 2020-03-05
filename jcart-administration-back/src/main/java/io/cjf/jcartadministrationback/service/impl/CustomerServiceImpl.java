@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import io.cjf.jcartadministrationback.dao.CustomerMapper;
 import io.cjf.jcartadministrationback.dao.OrderDetailMapper;
 import io.cjf.jcartadministrationback.dao.OrderMapper;
+import io.cjf.jcartadministrationback.dto.in.CustomerSetStatusInDTO;
 import io.cjf.jcartadministrationback.dto.out.OrderListOutDTO;
 import io.cjf.jcartadministrationback.dto.out.OrderShowOutDTO;
 import io.cjf.jcartadministrationback.po.Customer;
@@ -32,5 +33,13 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer getById(Integer customerId) {
         Customer customer = customerMapper.selectByPrimaryKey(customerId);
         return customer;
+    }
+
+    @Override
+    public void setStatus(CustomerSetStatusInDTO customerSetStatusInDTO) {
+        Customer customer = new Customer();
+        customer.setCustomerId(customerSetStatusInDTO.getCustomerId());
+        customer.setStatus(customerSetStatusInDTO.getStatus());
+        customerMapper.updateByPrimaryKeySelective(customer);
     }
 }
