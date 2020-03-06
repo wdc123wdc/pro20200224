@@ -20,5 +20,8 @@ public interface OrderHistoryMapper {
 
     int updateByPrimaryKey(OrderHistory record);
 
+//    custom
+
     List<OrderHistory> selectByOrderId(@Param("orderId") Long orderId);
+
 }

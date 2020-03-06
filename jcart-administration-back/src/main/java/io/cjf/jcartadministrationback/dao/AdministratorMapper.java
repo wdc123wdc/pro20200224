@@ -2,6 +2,7 @@ package io.cjf.jcartadministrationback.dao;
 
 import com.github.pagehelper.Page;
 import io.cjf.jcartadministrationback.po.Administrator;
+import org.apache.catalina.LifecycleState;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

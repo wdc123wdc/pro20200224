@@ -2,7 +2,9 @@ package io.cjf.jcartadministrationback.dao;
 
 import com.github.pagehelper.Page;
 import io.cjf.jcartadministrationback.po.Customer;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CustomerMapper {
     int deleteByPrimaryKey(Integer customerId);
 
@@ -16,5 +18,8 @@ public interface CustomerMapper {
 
     int updateByPrimaryKey(Customer record);
 
+//    custom
+
     Page<Customer> search();
+
 }

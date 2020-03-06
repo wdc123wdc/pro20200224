@@ -35,13 +35,12 @@ public class OrderListOutDTO {
     }
 
     public Long getCreateTimestamp() {
-        return this.createTimestamp == null ? null : this.createTime.getTime();
+        return this.createTime == null ? null : this.createTime.getTime();
     }
 
     public Long getUpdateTimestamp() {
-        return this.updateTimestamp == null ? null : this.updateTime.getTime();
+        return this.updateTime == null ? null : this.updateTime.getTime();
     }
-
 
     public Byte getStatus() {
         return status;
@@ -59,20 +58,20 @@ public class OrderListOutDTO {
         this.orderId = orderId;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Double getTotalPrice() {

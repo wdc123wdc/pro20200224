@@ -5,7 +5,6 @@ import io.cjf.jcartadministrationback.dto.out.OrderListOutDTO;
 import io.cjf.jcartadministrationback.po.Order;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public interface OrderMapper {
     int deleteByPrimaryKey(Long orderId);
@@ -20,5 +19,8 @@ public interface OrderMapper {
 
     int updateByPrimaryKey(Order record);
 
+//    custom
+
     Page<OrderListOutDTO> search();
+
 }

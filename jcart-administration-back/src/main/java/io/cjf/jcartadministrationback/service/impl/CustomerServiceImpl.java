@@ -3,16 +3,9 @@ package io.cjf.jcartadministrationback.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import io.cjf.jcartadministrationback.dao.CustomerMapper;
-import io.cjf.jcartadministrationback.dao.OrderDetailMapper;
-import io.cjf.jcartadministrationback.dao.OrderMapper;
 import io.cjf.jcartadministrationback.dto.in.CustomerSetStatusInDTO;
-import io.cjf.jcartadministrationback.dto.out.OrderListOutDTO;
-import io.cjf.jcartadministrationback.dto.out.OrderShowOutDTO;
 import io.cjf.jcartadministrationback.po.Customer;
-import io.cjf.jcartadministrationback.po.Order;
-import io.cjf.jcartadministrationback.po.OrderDetail;
 import io.cjf.jcartadministrationback.service.CustomerService;
-import io.cjf.jcartadministrationback.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Page<Customer> search(Integer pageNum) {
-        PageHelper.startPage(pageNum,10);
+        PageHelper.startPage(pageNum, 10);
         Page<Customer> page = customerMapper.search();
         return page;
     }

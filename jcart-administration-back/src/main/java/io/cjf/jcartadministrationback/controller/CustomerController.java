@@ -2,6 +2,7 @@ package io.cjf.jcartadministrationback.controller;
 
 import com.github.pagehelper.Page;
 import io.cjf.jcartadministrationback.dto.in.CustomerSearchInDTO;
+import io.cjf.jcartadministrationback.dto.in.CustomerSetStatusInDTO;
 import io.cjf.jcartadministrationback.dto.out.CustomerListOutDTO;
 import io.cjf.jcartadministrationback.dto.out.CustomerShowOutDTO;
 import io.cjf.jcartadministrationback.dto.out.PageOutDTO;
@@ -9,7 +10,6 @@ import io.cjf.jcartadministrationback.po.Address;
 import io.cjf.jcartadministrationback.po.Customer;
 import io.cjf.jcartadministrationback.service.AddressService;
 import io.cjf.jcartadministrationback.service.CustomerService;
-import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/customer")
+@CrossOrigin
 public class CustomerController {
 
     @Autowired
@@ -28,7 +29,7 @@ public class CustomerController {
 
     @GetMapping("/search")
     public PageOutDTO<CustomerListOutDTO> search(CustomerSearchInDTO customerSearchInDTO,
-                                                 @RequestParam Integer pageNum){
+                                                 @RequestParam(required = false, defaultValue = "1") Integer pageNum){
         Page<Customer> page = customerService.search(pageNum);
         List<CustomerListOutDTO> customerListOutDTOS = page.stream().map(customer -> {
             CustomerListOutDTO customerListOutDTO = new CustomerListOutDTO();
@@ -48,6 +49,7 @@ public class CustomerController {
         pageOutDTO.setPageSize(page.getPageSize());
         pageOutDTO.setPageNum(page.getPageNum());
         pageOutDTO.setList(customerListOutDTOS);
+
         return pageOutDTO;
     }
 
@@ -69,15 +71,16 @@ public class CustomerController {
         customerShowOutDTO.setDefaultAddressId(customer.getDefaultAddressId());
 
         Address defaultAddress = addressService.getById(customer.getDefaultAddressId());
-        if (defaultAddress != null) {
+        if (defaultAddress != null){
             customerShowOutDTO.setDefaultAddress(defaultAddress.getContent());
         }
+
         return customerShowOutDTO;
     }
 
-    @PostMapping("/disable")
-    public void disable(@RequestParam Integer customerId){
-
+    @PostMapping("/setStatus")
+    public void setStatus(@RequestBody CustomerSetStatusInDTO customerSetStatusInDTO){
+        customerService.setStatus(customerSetStatusInDTO);
     }
 
 }

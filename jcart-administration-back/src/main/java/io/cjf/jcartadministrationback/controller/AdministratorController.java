@@ -88,7 +88,7 @@ public class AdministratorController {
     }
 
     @GetMapping("/getList")
-    public PageOutDTO<AdministratorListOutDTO> getList(@RequestParam Integer pageNum){
+    public PageOutDTO<AdministratorListOutDTO> getList(@RequestParam(required = false, defaultValue = "1") Integer pageNum){
         Page<Administrator> page = administratorService.getList(pageNum);
         List<AdministratorListOutDTO> administratorListOutDTOS = page.stream().map(administrator -> {
             AdministratorListOutDTO administratorListOutDTO = new AdministratorListOutDTO();
@@ -159,12 +159,12 @@ public class AdministratorController {
 
     @PostMapping("/delete")
     public void delete(@RequestBody Integer adminstratorId){
-
+        administratorService.delete(adminstratorId);
     }
 
     @PostMapping("/batchDelete")
     public void batchDelete(@RequestBody List<Integer> administratorIds){
-
+        administratorService.batchDelete(administratorIds);
     }
 
 }

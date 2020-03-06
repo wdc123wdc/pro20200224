@@ -5,16 +5,14 @@ import io.cjf.jcartadministrationback.dto.out.AddressShowOutDTO;
 import io.cjf.jcartadministrationback.po.Address;
 import io.cjf.jcartadministrationback.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/address")
+@CrossOrigin
 public class AddressController {
 
     @Autowired
@@ -36,7 +34,7 @@ public class AddressController {
     }
 
     @GetMapping("/getById")
-    public AddressShowOutDTO getById(Integer addressId){
+    public AddressShowOutDTO getById(@RequestParam Integer addressId){
         Address address = addressService.getById(addressId);
         AddressShowOutDTO addressShowOutDTO = new AddressShowOutDTO();
         addressShowOutDTO.setAddressId(address.getAddressId());
@@ -46,4 +44,5 @@ public class AddressController {
         addressShowOutDTO.setTag(address.getTag());
         return addressShowOutDTO;
     }
+
 }
