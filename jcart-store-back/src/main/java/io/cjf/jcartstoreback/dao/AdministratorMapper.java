@@ -1,6 +1,10 @@
 package io.cjf.jcartstoreback.dao;
 
+import com.github.pagehelper.Page;
 import io.cjf.jcartstoreback.po.Administrator;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AdministratorMapper {
     int deleteByPrimaryKey(Integer administratorId);
@@ -14,4 +18,7 @@ public interface AdministratorMapper {
     int updateByPrimaryKeySelective(Administrator record);
 
     int updateByPrimaryKey(Administrator record);
+
+
+
 }
