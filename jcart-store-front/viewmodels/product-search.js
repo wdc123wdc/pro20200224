@@ -12,6 +12,11 @@ var app = new Vue({
         searchProduct() {
             axios.get('/product/search', {
                 params: {
+                    productCode:this.productCode,
+                    productName:this.productName,
+                    price:this.price,
+                    stockQuantity:this.stockQuantity,
+                    statuses:this.statuses,
                     pageNum: this.pageNum
                 }
             })
