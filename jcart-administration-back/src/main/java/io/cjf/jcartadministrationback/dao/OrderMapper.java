@@ -3,7 +3,10 @@ package io.cjf.jcartadministrationback.dao;
 import com.github.pagehelper.Page;
 import io.cjf.jcartadministrationback.dto.out.OrderListOutDTO;
 import io.cjf.jcartadministrationback.po.Order;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.Date;
 
 @Repository
 public interface OrderMapper {
@@ -21,6 +24,11 @@ public interface OrderMapper {
 
 //    custom
 
-    Page<OrderListOutDTO> search();
+    Page<OrderListOutDTO> search(@Param("orderId") Long orderId,
+                                 @Param("status")Byte status,
+                                 @Param("totalPrice")Double totalPrice,
+                                 @Param("customerName")String customerName,
+                                 @Param("statTime")Date statTime,
+                                 @Param("endTime")Date endTime);
 
 }

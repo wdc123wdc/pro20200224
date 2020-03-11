@@ -5,7 +5,6 @@ import io.cjf.jcartadministrationback.po.Return;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 @Repository
@@ -24,7 +23,7 @@ public interface ReturnMapper {
 
     Page<Return> search(@Param("returnId") Integer returnId,
                         @Param("orderId") Long orderId,
-                        @Param("startTime")Data startTime,
+                        @Param("startTime")Date startTime,
                         @Param("endTime")Date endTime,
                         @Param("status")Byte status,
                         @Param("productCode")String productCode,
