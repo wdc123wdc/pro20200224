@@ -17,15 +17,14 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerMapper customerMapper;
 
     @Override
-    public Page<Customer> search(CustomerSearchInDTO customerSearchInDTO,Integer pageNum) {
+    public Page<Customer> search(CustomerSearchInDTO customerSearchInDTO, Integer pageNum) {
         PageHelper.startPage(pageNum, 10);
-        Page<Customer> page = customerMapper.search(
-                customerSearchInDTO.getUsername(),
-                customerSearchInDTO.getRealName(),
-                customerSearchInDTO.getMobile(),
-                customerSearchInDTO.getEmail(),
-                customerSearchInDTO.getStatus()
-        );
+        Page<Customer> page = customerMapper
+                .search(customerSearchInDTO.getUsername(),
+                        customerSearchInDTO.getRealName(),
+                        customerSearchInDTO.getMobile(),
+                        customerSearchInDTO.getEmail(),
+                        customerSearchInDTO.getStatus());
         return page;
     }
 

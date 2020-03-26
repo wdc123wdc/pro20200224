@@ -27,6 +27,9 @@ public interface ProductMapper {
     int batchDelete(@Param("productIds") List<Integer> productIds);
 
     Page<ProductListOutDTO> search(@Param("productCode") String productCode,
-                                   @Param("status") Byte status,@Param("stockQuantity") Integer stockQuantity);
+                                   @Param("status") Byte status,
+                                   @Param("stockQuantity") Integer stockQuantity,
+                                   @Param("price") Double price,
+                                   @Param("productName") String productName);
 
 }

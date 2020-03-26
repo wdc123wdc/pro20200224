@@ -7,7 +7,7 @@ import io.cjf.jcartadministrationback.po.Customer;
 
 public interface CustomerService {
 
-    Page<Customer> search(CustomerSearchInDTO customerSearchInDTO,Integer pageNum);
+    Page<Customer> search(CustomerSearchInDTO customerSearchInDTO, Integer pageNum);
 
     Customer getById(Integer customerId);
 

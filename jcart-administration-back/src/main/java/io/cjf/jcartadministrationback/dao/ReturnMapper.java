@@ -21,12 +21,15 @@ public interface ReturnMapper {
 
     int updateByPrimaryKey(Return record);
 
+//    custom
+
     Page<Return> search(@Param("returnId") Integer returnId,
                         @Param("orderId") Long orderId,
-                        @Param("startTime")Date startTime,
-                        @Param("endTime")Date endTime,
-                        @Param("status")Byte status,
-                        @Param("productCode")String productCode,
-                        @Param("customerName")String customerName,
-                        @Param("productName")String productName);
+                        @Param("startTime") Date startTime,
+                        @Param("endTime") Date endTime,
+                        @Param("status") Byte status,
+                        @Param("productCode") String productCode,
+                        @Param("customerName") String customerName,
+                        @Param("productName") String productName);
+
 }

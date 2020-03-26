@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
     private CustomerService customerService;
 
     @Override
-    public Page<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO,Integer pageNum) {
+    public Page<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO, Integer pageNum) {
         PageHelper.startPage(pageNum, 10);
         Page<OrderListOutDTO> page = orderMapper
                 .search(orderSearchInDTO.getOrderId(),

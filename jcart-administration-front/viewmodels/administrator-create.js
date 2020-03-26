@@ -2,26 +2,33 @@ var app = new Vue({
     el: '#app',
     data: {
         username: '',
-        password: ''
+        password: '',
+        realName: '',
+        email: '',
+        avatarUrl: '',
+        selectedStatus: 1,
+        statuses: [
+            { value: 0, label: '禁用' },
+            { value: 1, label: '启用' }
+        ],
     },
     methods: {
-        handleLoginClick(){
-            console.log('login click');
-            this.loginAdministrator();
+        handleCreateClick(){
+            console.log('create click');
+            this.createAdministrator();
         },
-        loginAdministrator() {
-            axios.get('/administrator/login', {
-                params: {
-                    username: this.username,
-                    password: this.password
-                }
+        createAdministrator() {
+            axios.post('/administrator/create', {
+                username: this.username,
+                password: this.password,
+                realName: this.realName,
+                email: this.email,
+                avatarUrl: this.avatarUrl,
+                status: this.selectedStatus
             })
                 .then(function (response) {
                     console.log(response);
-                    var dto = response.data;
-                    localStorage['jcartToken'] = dto.token;
-                    localStorage['expireTimestamp'] = dto.expireTimestamp;
-                    alert('登陆成功');
+                    alert('创建成功');
                 })
                 .catch(function (error) {
                     console.log(error);

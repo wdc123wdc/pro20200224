@@ -8,7 +8,7 @@ import io.cjf.jcartadministrationback.po.Order;
 
 public interface OrderService {
 
-    Page<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO,Integer pageNum);
+    Page<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO, Integer pageNum);
 
     OrderShowOutDTO getById(Long orderId);
 

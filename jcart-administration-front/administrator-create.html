@@ -11,23 +11,20 @@
 
 <body>
     <div id="app">
-
-        <el-input v-model="username" placeholder="请输入用户名" readonly></el-input>
+        <el-input v-model="username" placeholder="请输入用户名"></el-input>
         <el-input v-model="password" placeholder="请输入密码"></el-input>
-        <el-input v-model="realName" placeholder="请输入姓名" readonly></el-input>
+        <el-input v-model="realName" placeholder="请输入姓名"></el-input>
         <el-input v-model="email" placeholder="请输入邮箱"></el-input>
-        <el-input v-model="avatarURL" placeholder="请输入头像" readonly></el-input>
-        <el-input v-model="value" placeholder="请输入密码">
-            <el-option v-for="iten in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-        </el-input>
-        
+        <el-input v-model="avatarUrl" placeholder="请输入头像"></el-input>
+        <el-select v-model="selectedStatus" placeholder="请选择状态">
+            <el-option v-for="item in statuses" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+        </el-select>
         <br>
 
-        <el-button type="primary" @click="handleUpdateClick">创建</el-button>
-
+        <el-button type="primary" @click="handleCreateClick">创建</el-button>
     </div>
 
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="assets/js/axios.min.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="assets/js/vue.js"></script>
