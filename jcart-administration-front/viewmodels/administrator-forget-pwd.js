@@ -1,11 +1,13 @@
 var app = new Vue({
     el: '#app',
     data: {
-        email: ''
+        email: '',
+        loading: false
     },
     methods: {
         handleFindBackPwdClick() {
             console.log('find back pwd click');
+            this.loading = true;
             this.getPwdResetCode();
         },
         getPwdResetCode() {
