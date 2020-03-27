@@ -9,6 +9,7 @@ import io.cjf.jcartadministrationback.enumeration.AdministratorStatus;
 import io.cjf.jcartadministrationback.exception.ClientException;
 import io.cjf.jcartadministrationback.po.Administrator;
 import io.cjf.jcartadministrationback.service.AdministratorService;
+import io.cjf.jcartadministrationback.util.EmailUtil;
 import io.cjf.jcartadministrationback.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,7 +40,7 @@ public class AdministratorController {
     private SecureRandom secureRandom;
 
     @Autowired
-    private JavaMailSender mailSender;
+    private EmailUtil emailUtil;
 
     @Value("${spring.mail.username}")
     private String fromEmail;
@@ -103,6 +104,9 @@ public class AdministratorController {
         }
         byte[] bytes = secureRandom.generateSeed(3);
         String hex = DatatypeConverter.printHexBinary(bytes);
+
+
+
         //SimpleMailMessage message = new SimpleMailMessage();
         //message.setFrom(fromEmail);
         //message.setTo(email);
